@@ -1,6 +1,6 @@
 import streamlit as st
 import math
-st.write_stream(stream)
+
 st.set_page_config(page_title="Kalkulator pH & pOH", layout="centered")
 
 # Title
@@ -82,3 +82,26 @@ if st.button("Hitung pH dan pOH"):
 
 st.markdown("---")
 st.caption("📘 Made with Streamlit for educational purposes.")
+
+_LOREM_IPSUM = """Aplikasi ini membantu menghitung nilai pH dan pOH larutan berdasarkan input konsentrasi ion [H⁺] atau [OH⁻].
+"""
+
+
+
+def stream_data():
+    for word in _LOREM_IPSUM.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+
+    yield pd.DataFrame(
+        np.random.randn(5, 10),
+        columns=["a", "b", "c", "d", "e", "f", "g", "h", "i", "j"],
+    )
+
+    for word in _LOREM_IPSUM.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+
+
+if st.button("Stream data"):
+    st.write_stream(stream_data)
