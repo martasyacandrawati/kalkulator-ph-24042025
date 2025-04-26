@@ -1,6 +1,6 @@
 import streamlit as st
 import math
-
+st.write_stream(stream)
 st.set_page_config(page_title="Kalkulator pH & pOH", layout="centered")
 
 # Title
